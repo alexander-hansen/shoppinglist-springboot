@@ -15,7 +15,6 @@ import java.util.Scanner;
 @SpringBootApplication
 public class DemoShoppingListSpringBootApplication implements CommandLineRunner
 {
-
     @Autowired
     private DaftarBelanjaRepo repo;
 
@@ -26,6 +25,7 @@ public class DemoShoppingListSpringBootApplication implements CommandLineRunner
 
     @Override
     public void run(String... args) throws Exception {
+        //cari berdasarkan id
         Scanner sc = new Scanner(System.in);
         List<DaftarBelanja> all = repo.findAll();
 //        System.out.println("membaca semua record DaftarBelanja:");
@@ -54,5 +54,9 @@ public class DemoShoppingListSpringBootApplication implements CommandLineRunner
         //update
 
         //delete
+        DaftarBelanja dbHapus = new DaftarBelanja();
+        repo.delete(dbHapus);
+
+        //insert
     }
 }
